@@ -1,0 +1,24 @@
+indexes
+
+- kind: Playlist
+  properties:
+  - name: playlistname
+  - name: user_id
+  
+- kind: SongsList
+  properties:
+  - name: artists
+  - name: duration
+  - name: song
+
+- kind: User
+  properties:
+  - name: email
+  - name: password
+
+- kind: PlaylistSong
+  properties:
+  - name: playlist_id
+  - name: song_id
+  - name: user_id
+

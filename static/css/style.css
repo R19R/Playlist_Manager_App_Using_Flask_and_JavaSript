@@ -1,0 +1,706 @@
+body {
+  margin: 0% 2%;
+  word-spacing: 1px;
+  height: 100%;
+  max-width: 100%;
+  font-size: 20px;
+}
+#login, #basicLogin {
+  position: fixed;
+  width: 25%;
+  height: 350px;
+  margin-top: 125px;
+  margin-left: 1100px;
+  /* border: 2px solid red; */
+}
+#login p {
+  margin-left: 15px;
+}
+#login input {
+  margin-left: 15px;
+}
+#loginBtn {
+  width: fit-content;
+  margin-top: 25px;
+  margin-left: 15px;
+}
+#adminLoginBtn {
+  width: fit-content;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+#loginGeneral{
+  width: fit-content;
+  font-size: 16px;
+  margin-top: 25px;
+  margin-left: 70px;
+}
+#newAdmin{
+  font-size: 18px;
+  position: fixed;
+  margin-left: 1390px;
+  margin-top: 4%;
+  display: none;
+}
+#newAdmin a{
+  text-decoration: none;
+}
+#newAdmin a:hover{
+  color:red;
+}
+#msg {
+  display: none;
+  /* border: 2px solid blue;  */
+  height: 50px;
+  color: red;
+  font-size: 25px;
+  margin-left: 10px; 
+}
+#newUser {
+  margin-top: 35px;
+}
+#googleLogin {
+  margin-top: 45px;
+}
+#google-icon{
+  height: 25px;
+  width: 25px;
+  margin-left: 5px;
+}
+#songList {
+  width: 50%;
+  margin: 3% 15%;
+  position: fixed;
+}
+
+#registerForm{
+  margin: 5% 20%;
+  position: fixed;
+  margin-left: 300px;
+  width: 50%;
+  height: 500px;
+  /* border: 2px solid red; */
+}
+#registerForm p{
+  margin-left: 15px;
+  text-align: center;
+}
+#registerForm input{
+  margin-left: 300px;
+  text-align: center;
+}
+#adminRegisterForm {
+  margin: 5% 20%;
+  position: fixed;
+  margin-left: 300px;
+  width: 50%;
+  height: 500px;
+  display: none;
+}
+#adminRegisterForm input {
+  margin-left: 350px;
+  text-align: center;
+}
+#adminRegisterForm p{
+  margin-left: 95px;
+  text-align: center;
+}
+#addAdminBtn {
+  width: fit-content;
+  margin-top: 35px;
+  margin-left: 390px;
+}
+#backToAdminPage{
+  display: none;
+  font-size: 18px;
+  position: fixed;
+  margin-left: 1300px;
+  margin-top: 4%;
+}
+#backToAdminPage a{
+  text-decoration: none;
+}
+#backToAdminPage a:hover{
+  text-decoration: none;
+  color: red;
+}
+#regBtn{
+  width: fit-content;
+  margin-top: 25px;
+  margin-left: 350px;
+}
+#back {
+  font-size: 18px;
+  position: fixed;
+  margin-top: 2%;
+  margin-left: 1250px;
+}
+#back a {
+  text-decoration: none;
+}
+#songList {
+  border: 2px solid red;
+  width: 60%;
+  position: fixed;
+  height: 500px;
+  margin-top: 8%;
+  margin-left: 25px;
+}
+#songList h2 {
+  font-size: 30px;
+  text-align: center;
+}
+#listSongs {
+  border: 2px solid blue;
+  width: 90%;
+  display: block;
+  margin-left: 40px;
+  overflow-y: scroll;
+  height: 375px;
+}
+#listSongs p {
+  text-align: left;
+}
+
+#listSongs-table{
+  margin-left: 10px;
+  border-collapse: collapse;
+  width: 95%;
+  text-align: center;
+  height: 200px;
+}
+#listSongs-table thead{
+  height: 50px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  width: 100%;
+}
+#listSongs-table tbody tr{
+  height: 25px;
+  width: 100%;
+}
+#listSongs-table td{
+  height: 35px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  width: 1000px;
+}
+#listSongs-table tr{
+  border-bottom: 2px solid red;
+  width: 100%;
+}
+#login_msg {
+  position: fixed;
+  width: 25%;
+  height: 350px;
+  margin-top: 75px;
+  margin-left: 1050px;
+  display: block;
+  color: green;
+  font-size: 22px;
+}
+#reg_msg_css {
+  display: block;
+}
+#login_error_msg {
+  display: block;
+  color: red;
+}
+#userWelcome {
+  text-align: center;
+  font-size: 24px;
+  display: none;
+  position: fixed;
+  margin-left: 40%;
+}
+#userProfile, #playlistProfile{
+  position: fixed;
+  width: 25%;
+  height: 500px;
+  margin-top: 125px;
+  margin-left: 1000px;
+}
+#userProfile {
+  border: 2px solid red;
+  display: none;
+}
+#playlistList h4 {
+  text-align: center;
+}
+/* #userPlaylist{
+  margin-left: 100px;
+} */
+#playlistList ol {
+  list-style-type: disc;
+  text-align: left;
+}
+#playlistList a {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+#playlistList a:hover {
+  color: blue;
+}
+#logout {
+  font-size: 18px;
+  position: fixed;
+  margin-top: 2%;
+  margin-left: 1400px;
+  display: none;
+}
+#logout a {
+  text-decoration: none;
+}
+#createPlaylist {
+  width: fit-content;
+  padding: 1%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  position: fixed;
+  top: 550px;
+  right: 225px;
+}
+#playlistProfile{
+  display: none;
+  margin-top: -97px;
+  margin-left: 1002px;
+}
+#playlistProfile h4 {
+  text-align: center;
+  margin-top: 250px;
+}
+#playlistSongs {
+  margin-left: 50px;
+  width: 75%;
+  border: 2px solid blue;
+  display: block;
+  overflow-y: scroll;
+  height: 325px;
+}
+#doneBtn {
+  width: fit-content;
+  padding: 1%;
+  text-align: center;
+  font-size: 16px;
+  position: fixed;
+  top: 550px;
+  margin-left: 120px;
+  font-weight: bold;
+}
+#table-container {
+  margin-left: 50px;
+  width: 75%;
+  height: 325px;
+  border: 2px solid blue;
+  display: block;
+  overflow-y: scroll;
+  height: 325px;
+  cursor: pointer;
+}
+#list, #playlistSongs-table {
+  top: 15px;
+}
+#list, #playlistSongs-table tr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#list,
+#playlistSongs-table {
+  border-collapse: collapse;
+  margin-left: 35px;
+  width: 75%;
+  position: relative;
+  padding: 5px;
+}
+#list td,
+#playlistSongs-table td {
+  border-bottom: 2px solid grey;
+  margin-left: 50px;
+  text-align: center;
+  padding-bottom: 5px;
+  height: 30px;
+} 
+#list td{
+  height: 30px;
+}
+#list tr,
+#playlistSongs-table tr {
+  display: table;
+  width: 100%;
+}
+#list tbody,
+#playlistSongs-table tbody {
+  display: block;
+  overflow-y: visible;
+}
+#list tbody tr,
+#playlistSongs-table tbody tr {
+  display: table;
+  overflow-y: visible;
+}
+#list tbody tr:hover,
+#playlistSongs-table tbody tr:hover{
+  color:red;
+}
+#modalId {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 35%;
+  top: 30%;
+  width: 300px;
+  height: fit-content;
+  overflow: auto;
+  background-color: slateblue;
+  color: black;
+  background-color: rgba(48, 191, 216, 0.4);
+  background-color: rgb(48, 191, 216);
+}
+#modalId h4 {
+  text-align: center;
+}
+.modal-content {
+  margin: auto;
+  padding: 10px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  width: 80%;
+  text-align: center;
+  overflow-y: scroll;
+  height: 250px;
+  cursor: pointer;
+}
+.modal-content p:hover{
+  color:red;
+}
+.modal-content a {
+  padding-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+.modal-content a:hover {
+  color: red;
+}
+.modal-content ul {
+  list-style: none;
+}
+.modal-content li {
+  line-height: 35px;
+  border-bottom: 2px solid black;
+}
+.close {
+  position: relative;
+  float: right;
+  font-size: 26px;
+  font-weight: bold;
+  right: 25px;
+  top: -50px;
+}
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+#admin {
+  margin: 5% 20%;
+  position: fixed;
+  margin-left: 300px;
+  width: 50%;
+  height: 500px;
+  border: 2px solid red;
+  display: none;
+}
+#admin h2 {
+  text-align: center;
+}
+#heading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 35px;
+}
+#admin p {
+  margin-top: 25px;
+  margin-left: 18px;
+  text-align: center;
+  font-size: 18px;
+}
+#admin input {
+  margin-left: 300px;
+  text-align: center;
+}
+#admin-btn {
+  width: 75px;
+  height: 25px;
+  margin-left: 350px;
+  margin-top: 35px;
+  font-weight: bold;
+  font-size: 14px;
+}
+#searchBtn{
+  width: 250px;
+  position: fixed;
+  margin-left: 650px;
+  margin-top: -55px;
+  margin-bottom: 25px;
+  /* border: 2px solid black; */
+}
+#searchBtn input{
+  width: 80%;
+  font-size: 14px;
+  border: 2px solid black;
+  color: maroon;
+}
+#searchBtn i:hover{
+  color:blue;
+  cursor:pointer;
+}
+#searchSongs-table{
+  margin-left: 10px;
+  border-collapse: collapse;
+  width: 95%;
+  text-align: center;
+  height: 200px;
+  display: none;
+  border: 2px solid aqua;
+
+}
+#searchSongs-table thead {
+  height: 170px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  width: 100%;
+}
+#searchSongs-table td{
+  height: 35px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  width: 25px;
+}
+#searchSongs-table tr {
+  border-bottom: 2px solid red;
+  width: 100%;
+}
+#searchSongs-table td{
+  width: 1000px;
+}
+#backToSongList {
+  font-size: 20px;
+  margin-left: 100px;
+  /* border: 2px solid black; */
+  display: none;
+  height: 50px;
+  position: absolute;
+  top: 35px;
+}
+#backToSongList a{
+  text-decoration: none;
+}
+#backToSongList a:hover{
+  color:black;
+}
+#profilePage, #homePage{
+  display: none;
+  position: fixed;
+  margin-left: 5%;
+  margin-top: 2%;
+  font-size: 20px;
+}
+#backToUserPage, #backToUserProfilePage, #backToProfileSection{
+  display: none;
+  position: fixed;
+  margin-left: 8%;
+  margin-top: 8.75%;
+  font-size: 25px;
+}
+#profilePage a, #backToUserPage a, #backToUserProfilePage a, 
+#backToProfileSection a{
+  text-decoration: none;
+}
+#profilePage a:hover,  #backToProfileSection a:hover{
+  color: black;
+}
+#backToUserPage a:hover{
+  color:red;
+}
+#backToUserProfilePage a:hover{
+  color: green;
+}
+#profileContainer{
+  width: 85%;
+  height: 310px;
+  margin: 7% 5%;
+  position: fixed;
+  display: none;
+  border: 2px solid red;
+}
+#profileContainer h3{
+  position: fixed;
+  margin-left: 37%;
+  font-size: 25px;
+  margin-top: 1.5%;
+}
+#playlistCount{
+  font-size: 20px;
+  margin-top: -2%;
+  margin-top: 25px;
+  margin-bottom: 55px;
+  font-weight: bold;
+  position: fixed;
+  top: 115px;
+  left: 250px;
+}
+#userPlaylists{
+  border: 2px solid red;
+  height: 150px;
+  width: 68%;
+  margin-left: 10%;
+  overflow-y: scroll;
+  position: fixed;
+  left: 95px;
+  top: 200px;
+}
+#suggestion{
+  margin-left: 5.6%;
+  margin-top: 23%;
+  font-size: 18px;
+  position: fixed;
+  display: none;
+}
+#suggestedProfiles{
+  height: 150px;
+  width: 68.25%;
+  margin-left: 8%;
+  margin-top: 9%;
+  border: 2px solid blue;
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: fixed;
+}
+#suggestedProfileText{
+  margin-left: 37%;
+  margin-top: 6%;
+  font-size: 18px;
+  font-weight: bold;
+  position: fixed;
+  word-wrap: break-word;
+}
+.playlistBox, .suggestedProfile-text{
+  height: 125px;
+  width: 150px;
+  background-color: #555;
+  margin-top: 1.75%;
+  margin-left: 1.75%;
+  margin-bottom: 1.75%;
+  float: left;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+#playlistBoxText{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  word-wrap: break-word;
+}
+#yourProfile{
+  margin-left: 1135px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  display: none;
+}
+#Password{
+  margin-left: 1185px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: fixed;
+  top: 30px;
+  display: none;
+}
+#yourProfile a, #homePage a, #Password a{
+  text-decoration: none;
+}
+#yourProfile a:hover, #homePage a:hover, #Password a:hover{
+  color: red;
+}
+#changePasswordForm{
+  display: none;
+  margin: 14% 20%;
+  position: fixed;
+  margin-left: 335px;
+  width: 50%;
+  height: 500px;
+}
+#changePasswordForm p{
+  margin-left: 15px;
+  text-align: center;
+}
+#changePasswordForm input{
+  margin-left: 300px;
+  text-align: center;
+}
+#passwordBtn{
+  margin-left: 324px;
+  margin-top: 5%;
+  height: 30px;
+  font-weight: 600;
+}
+#profilePagePlaylist{
+  border: 2px solid brown;
+  width: 50%;
+  display: none;
+  margin-left: 18%;
+  height: 200px;
+  overflow-y: scroll;
+  position: fixed;
+  top: 175px;
+}
+#profilePagePlaylistTable{
+  border-collapse: collapse;
+  margin-left: 60px;
+  width: 38%;
+  position: fixed;
+  padding: 5px;
+  height: 180px;
+  cursor: pointer;
+  overflow-y: scroll;
+}
+#profilePagePlaylistTable td{
+  border-bottom: 2px solid grey;
+  margin-left: 50px;
+  text-align: center;
+  padding-bottom: 5px;
+  height: 25px;
+} 
+#profilePagePlaylistTable td{
+  height: 30px;
+}
+#profilePagePlaylistTable tr{
+  display: table;
+  width: 100%;
+}
+#profilePagePlaylistTable tbody{
+  display: block;
+  overflow-y: visible;
+}
+#profilePagePlaylistTable tbody tr{
+  display: table;
+  overflow-y: visible;
+  height: 50px;
+}
+#profilePagePlaylistTable tbody tr:hover{
+  color:red;
+}
+.plusButton{
+  display: block;
+}
+#profilePageModaId{
+  display: none;
+}

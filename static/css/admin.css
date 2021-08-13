@@ -1,0 +1,6 @@
+#admin{margin: 5% 20%; position: fixed; margin-left: 300px; width: 50%; height: 500px; border: 2px solid red; display: none;}
+#admin h2{text-align: center;}
+#heading{text-align: center; font-size: 18px; font-weight: bold;margin-top: 35px;}
+#admin p{margin-top: 25px;margin-left: 18px; text-align: center; font-size: 18px}
+#admin input{margin-left: 300px;text-align: center;}
+#admin-btn{width: 75px; height:25px; margin-left: 350px; margin-top: 35px; font-weight: bold; font-size: 14px;}

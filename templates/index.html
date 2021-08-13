@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link
+      href="{{url_for('static', filename='css/style.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+      data-auto-replace-svg="nest"
+    ></script>
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <div id="login_msg">
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for msg
+      in messages %}
+      <p>{{ msg|safe }}</p>
+      {% endfor %} {% endif %} {% endwith %}
+    </div>
+    {% if email %}
+    <div id="basicLogin" style="display: none;">
+      {% else %}
+      <div id="basicLogin" style="display: block;"></div>      
+      <div id="login">
+        <form>
+          <p>Email</p>
+          <input type="text" name="email_login" id="emailLogin" />
+          <p>Password</p>
+          <input
+            type="password"
+            name="password_login"
+            id="passwordLogin"
+          /><br />
+          <input id="loginBtn" type="radio" name="who" value="User" />User
+          <input
+            id="adminLoginBtn"
+            type="radio"
+            name="who"
+            value="Admin"
+          />Admin <br />
+          <button id="loginGeneral" value="submit" onclick="checkUser(event); return false;">Login</button>
+        </form>
+        <p id="newUser">
+          New User <a href="{{url_for('register')}}">Click Here</a>
+        </p>
+        <p id="googleLogin">
+          Google Sign In
+          <a href="{{url_for('google_login')}}">
+            <img
+              src="/static/images/google-logo-9808.png"
+              alt="google-logo"
+              id="google-icon"
+            />
+          </a>
+        </p>
+        
+        <div id="msg">
+          <div id="flash"></div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div id="songList">
+      <h2>Song List</h2>
+      <div id="backToSongList">
+        <a href="#" onclick="backToSongs();">Back</a>
+      </div>
+      <div id="searchBtn">
+        <input type="text" placeholder="Search Songs or Artist" 
+        name="search" id="searchBar" oninput="searchSongsTimer();">
+        <button>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button> 
+      </div>
+      <div id="listSongs">
+        <table id="listSongs-table" onscroll="scrollTable(); return false;">
+          <thead>
+            <tr>
+              <th>Song</th>
+              <th>Artist</th>
+              <th>Duration</th>
+              <th>Add To</th>
+            </tr>
+          </thead>
+          <tbody id="listSongs-table-tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal" id="modalId">
+      <h4>Your Playlists</h4>
+      <span class="close">&times;</span>
+      <div class="modal-content"></div>
+    </div>
+    {% if email %}
+    <div id="userWelcome" style="display: block;">
+      <h3 id="welcomeUser">Welcome, {{name}} </h3>
+      {% else %}
+      <div id="userWelcome">
+        <h3 id="welcomeUser"></h3>
+      {% endif %}
+    </div>
+    {% if email %}
+    <div id="userProfile" style="display: block;">
+        <div id="playlistList" style="display: block;">
+        <h4 id="userPlaylist" style="display: block;">Your Playlists</h4>
+        <div id="table-container" 
+        style="display: block;" >
+          <table id="list" style="display: block;">
+            <tr></tr>
+          </table>
+        </div>
+        <button id="createPlaylist" onclick="createPlaylist(); return false;">Create Playlist</button>
+    </div>
+    {% else %}
+    <div id="userProfile">
+      <div id="playlistList" >
+      <h4 id="userPlaylist">Your Playlists</h4>
+      <div id="table-container">
+        <table id="list">
+          <tr></tr>
+        </table>
+      </div>
+      <button id="createPlaylist" onclick="createPlaylist(); return false;">Create Playlist</button>
+  </div>
+    {% endif %}
+    </div>
+    
+    <div id="playlistProfile">
+        <h4 id="playlistTitle"></h4>
+        <div id="playlistSongs">
+          <table id="playlistSongs-table"></table>
+        </div>
+        <button id="doneBtn">Back to Playlists</button>
+      </div>
+    </div>
+    <div id="admin">
+      <h2>Welcome, Admin!</h2>
+      <form>
+        <div id="heading">Add Song Details</div>
+        <p>Song Name</p>
+        <input type="text" name="songName" id="adminSongName" />
+        <p>Artists</p>
+        <input type="text" name="artists" id="adminArtists" />
+        <p>Duration</p>
+        <input type="text" name="duration" id="adminDuration" /><br />
+        <button type="submit" value="submit" id="admin-btn">Submit</button>
+      </form>
+    </div>
+    <div id="newAdmin">
+      <a href="#" onclick="newAdminCss(); return false;">New Admin</a>
+    </div>
+    <div id="adminRegisterForm">
+      <form>
+        <p>Name</p>
+        <input type="text" name="newAdmin_name" id="newAdmin_name" />
+        <p>Email</p>
+        <input type="text" name="newAdmin_email" id="newAdmin_email" />
+        <p>Password</p>
+        <input type="password" name="newAdmin_pword" id="newAdmin_pword" />
+        <p>Confirm Password</p>
+        <input
+          type="password"
+          name="newAdmin_con_pword"
+          id="newAdmin_con_pword"
+        /><br />
+        <button id="addAdminBtn" type="submit" value="submit" >Add Admin</button>
+      </form>
+      <div id="adminMsg">
+        <p id="newAdminMsg"></p>
+      </div>
+    </div>
+    <div id="backToAdminPage">
+      <p>
+        <a href="#" onclick="backToAdminPage(); return false;"
+          >Back to Admin Page</a
+        >
+      </p>
+    </div>
+    {% if email %}
+    <div id="profilePage" style="display: block;">
+      <a href="#" onclick="profilePage();">My Profile</a>
+    </div>
+    <div id="homePage">
+      <a href="#" onclick="homePage();">Homepage</a>
+    </div>
+    <div id="Password">
+      <a href="#" onclick="changePassword();">Change Password</a>
+    </div>
+    <div id="profileContainer">
+      <h3 id="userName"></h3>
+      <div id="yourProfile">
+        <a href="#" onclick="yourProfile();">Your Profile</a>
+      </div>
+      <div id="playlistCount"></div>
+      <div id="userPlaylists"></div>
+      <div id="profilePagePlaylist">
+        <table id="profilePagePlaylistTable">
+        </table>
+      </div>
+      <div class="profilePageModal" id="profilePageModaId">
+        <h4>Playlists</h4>
+        <span class="close">&times;</span>
+        <div class="modal-content"></div>
+      </div>
+    </div>
+      <div id="suggestion">
+        <div id="suggestedProfileText">
+          <p>Suggested Profiles</p>
+        </div>
+        <div id="suggestedProfiles"></div>
+        </div>
+      </div>
+    <div id="backToProfileSection">
+      <a href="#" onclick="backToProfileSectionJS();">
+        <i class="far fa-arrow-alt-circle-left"></i>
+      </a>
+    </div>
+    <div id="changePasswordForm">
+      <form>
+        <p>Enter Old Password</p>
+        <input type="password" id='user_old_pword'>
+        <p>Enter New Password</p>
+        <input type="password" id='user_new_pword'>
+        <p>Re-Type New Password</p>
+        <input type="password" id='confirm_new_pword'><br>
+        <button id="passwordBtn" value="submit">Change Password</button>
+      </form>
+    </div>
+    <div id="backToUserProfilePage">
+      <a href="#" onclick="backToUserProfilePage();">
+        <i class="far fa-arrow-alt-circle-left"></i>
+      </a>
+    </div>      
+    <!-- <div id="backToUserPage">
+      <a href="#" onclick="userPage();">
+        <i class="far fa-arrow-alt-circle-left"></i>
+      </a>
+    </div> -->
+    <div id="backToUserProfilePage">
+      <a href="#" onclick="backToUserProfilePage();">Back</a>
+    </div>
+    {% else %}
+    <div id="profilePage">
+      <a href="#" onclick="profilePage();">My Profile</a>
+    </div>
+    <div id="homePage">
+      <a href="#" onclick="homePage();">Homepage</a>
+    </div>
+    <div id="Password">
+      <a href="#" onclick="changePassword();">Change Password</a>
+    </div>
+    <div id="profileContainer">
+      <h3 id="userName"></h3>
+      <div id="yourProfile">
+        <a href="#" onclick="profilePage();">Your Profile</a>
+      </div>
+      <div id="playlistCount"></div>
+      <div id="userPlaylists"></div>
+      <div id="profilePagePlaylist">
+        <table id="profilePagePlaylistTable">
+        </table>
+      </div>
+      <div class="profilePageModal" id="profilePageModaId">
+        <h4>Playlists</h4>
+        <span class="close">&times;</span>
+        <div class="modal-content"></div>
+      </div>
+    </div>
+      <div id="suggestion">
+        <div id="suggestedProfileText">
+          <p>Suggested Profiles</p>
+        </div>
+        <div id="suggestedProfiles"></div>
+        </div>
+      </div>
+    <div id="backToProfileSection">
+      <a href="#" onclick="backToProfileSectionJS();">
+        <i class="far fa-arrow-alt-circle-left"></i>
+      </a>
+    </div>    
+    <div id="changePasswordForm">
+      <form>
+        <p>Enter Old Password</p>
+        <input type="password" id='user_old_pword'>
+        <p>Enter New Password</p>
+        <input type="password" id='user_new_pword'>
+        <p>Re-Type New Password</p>
+        <input type="password" id='confirm_new_pword'><br>
+        <button id="passwordBtn" value="submit" >Change Password</button>
+      </form>
+    </div>
+    <div id="backToUserProfilePage">
+      <a href="#" onclick="backToUserProfilePage();">
+        <i class="far fa-arrow-alt-circle-left"></i>
+      </a>
+    </div>      
+    <div id="backToUserPage">
+      <a href="#" onclick="profilePage();">
+        <i class="far fa-arrow-alt-circle-left"></i>
+      </a>
+      {% endif %}
+    </div>
+
+    {% if email %}
+    <div id="logout" style="display: block;">
+      <a href="{{url_for('logout')}}">Logout</a>
+    {% else %}
+    <div id="logout">
+      <a href="{{url_for('logout')}}">Logout</a>
+    {% endif %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='js/playlist.js')}}"></script>
+  </body>
+</html>
