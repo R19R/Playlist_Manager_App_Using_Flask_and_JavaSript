@@ -27,7 +27,7 @@ from authlib.integrations.flask_client import OAuth
 from flask_session import Session
 
 
-credentials_path = "playlistdatastore.json"
+credentials_path = "google_credentials.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
 db = ndb.Client()
@@ -287,38 +287,7 @@ def getplaylistname():
                 "Playlists": get_playlist_list,
                 "email":email,
                 "name":name})
-
-        '''playlist_query = Playlist.query()
-
-        if request.method =='GET':
-            next_cursor = request.args.get('cursor')
-            nextCursor = Cursor(urlsafe=next_cursor)
-
-            if next_cursor == None:
-                entities, cursor, more = playlist_query.fetch_page(page_size=20)
-                currentCursor = cursor.urlsafe()
-                for i in entities:
-                    if i.user_id == _id:
-                        get_playlist_list.append({"Playlist":i.playlistname,
-                                                  "Playlist_id":i.key.id()})
-                return jsonify({"Playlists":get_playlist_list,
-                            'cursor': currentCursor.decode("utf-8")}) 
-
-            if next_cursor != None:
-                entities, cursor, more = playlist_query.fetch_page(page_size=20,
-                                                            start_cursor=nextCursor)
-                
-                if not cursor:
-                    return jsonify({"Success":"No more entries"})
-                newCursor = cursor.urlsafe()
-
-                for i in entities:
-                    if i.user_id == _id:
-                        get_playlist_list.append({"Playlist":i.playlistname,
-                                              "Playlist_id":i.key.id()})
-                return jsonify({"Playlists":get_playlist_list,
-                            'cursor': newCursor.decode("utf-8")}) '''
-        
+      
             
 
 ''' Run this api only once to read songs into from local file
@@ -457,54 +426,6 @@ def playlistsong():
                                         "songName":i.song_name})
             return jsonify({"Songs":list_of_songs})
         
-        '''if request.method == 'GET':
-            playlistSongDetails = PlaylistSong.query()
-
-            id_playlist = request.args.get('playlist_id')
-            next_cursor = request.args.get('cursor')
-            nextCursor = Cursor(urlsafe=next_cursor)
-           
-            if next_cursor == 'null' :
-                entities, cursor, more = playlistSongDetails.fetch_page(
-                                                            page_size=15)
-                currentCursor = cursor.urlsafe()
-                for i in entities:
-                    if i.playlist_id == id_playlist:
-                        list_of_songs.append({"songId":i.song_id, 
-                                    "songName":i.song_name})
-                return jsonify({"Songs":list_of_songs,
-                            'cursor': currentCursor.decode("utf-8")})
-            else:
-                entities, cursor, more = playlistSongDetails.fetch_page(
-                                                    page_size=10,
-                                                    start_cursor=nextCursor)
-                if not cursor:
-                    return jsonify({"Success":"No more entries"})   
-                currentCursor = cursor.urlsafe()
-                for i in entities:
-                    if i.playlist_id == id_playlist:
-                        list_of_songs.append({"songId":i.song_id, 
-                                    "songName":i.song_name})
-                if list_of_songs == []:
-                    return jsonify({"info":"Please add songs"})
-                return jsonify({"Songs":list_of_songs,
-                            'cursor': currentCursor.decode("utf-8")}) '''
-
-            # if next_cursor != "null":
-            #     entities, cursor, more = playlistSongDetails.fetch_page(page_size=10,
-            #                                                 )
-            #     if not cursor:
-            #         return jsonify({"Success":"No more entries"})
-            #     newCursor = cursor.urlsafe()
-
-            #     for i in entities:
-            #         if i.playlist_id == id_playlist:
-            #             if i.user_id == _id:
-            #                 list_of_songs.append({"songId":i.song_id, 
-            #                                 "songName":i.song_name})
-            #     return jsonify({"Songs":list_of_songs,
-            #                 'cursor': newCursor.decode("utf-8")}) 
-
 @app.route("/deletesong", methods=['DELETE'])
 def deletesong():
     '''API call to delete song in the playlist'''
